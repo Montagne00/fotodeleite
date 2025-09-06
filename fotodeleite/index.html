@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fotodeleite</title>
+  
+  <!-- Fuentes de Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:wght@400;700&family=Caladea&display=swap" rel="stylesheet">
+
+  <style>
+    /* Paleta de colores */
+    :root {
+      --text-header: #2e2e2e;
+      --bg-main: #f5f2eb;
+      --bg-box: #fafafa;
+      --accent1: #d7bfa6;
+      --accent2: #c4a76d;
+      --accent3: #3b5d50;
+      --accent4: #c2c8b1;
+      --highlight1: #d88c6f;
+      --highlight2: #846c3b;
+      --neutral1: #d9d9d9;
+      --neutral2: #c6c6c6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cinzel', serif;
+      background-color: var(--bg-main);
+      color: var(--text-header);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--highlight2);
+    }
+
+    header {
+      background-color: var(--bg-main);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Caladea', serif;
+      text-transform: uppercase;
+      color: var(--text-header);
+    }
+
+    header h1 {
+      font-size: 32px;
+    }
+
+    nav a {
+      margin-left: 25px;
+      font-weight: 600;
+      font-family: 'Cinzel', serif;
+    }
+
+    /* Banner principal */
+    .banner {
+      background: url('https://via.placeholder.com/1200x500') no-repeat center center/cover;
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fafafa;
+      font-family: 'Cormorant Garamond', serif;
+      position: relative;
+    }
+
+    .banner::after {
+      content: "";
+      position: absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      background-color: rgba(59,93,80,0.6); /* overlay oscuro */
+    }
+
+    .banner div {
+      position: relative;
+      z-index: 1;
+    }
+
+    .banner h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .banner a {
+      padding: 12px 30px;
+      background-color: var(--highlight2);
+      color: #fafafa;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      color: var(--text-header);
+      font-size: 36px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    /* Portafolio */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .portfolio-grid img {
+      width: 100%;
+      border-radius: 8px;
+      border: 2px solid var(--neutral1);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .portfolio-grid img:hover {
+      transform: scale(1.05);
+      border-color: var(--accent2);
+    }
+
+    /* Servicios con franjas */
+    .services .service-card {
+      padding: 25px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #fafafa;
+    }
+
+    .services .service-card:nth-child(1) { background-color: var(--accent1); }
+    .services .service-card:nth-child(2) { background-color: var(--accent2); }
+    .services .service-card:nth-child(3) { background-color: var(--accent3); }
+    .services .service-card:nth-child(4) { background-color: var(--accent4); }
+
+    .services .service-card h3 {
+      margin-bottom: 12px;
+      color: var(--text-header);
+      font-family: 'Cinzel', serif;
+    }
+
+    .services .service-card p {
+      font-family: 'Cinzel', serif;
+    }
+
+    .about {
+      background-color: var(--accent3);
+      color: #fafafa;
+      text-align: center;
+      padding: 60px 20px;
+      border-radius: 8px;
+      font-family: 'Cinzel', serif;
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .contact input, 
+    .contact textarea {
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid var(--neutral1);
+      border-radius: 5px;
+      font-size: 16px;
+      font-family: 'Cinzel', serif;
+    }
+
+    .contact button {
+      padding: 12px;
+      background-color: var(--highlight1);
+      color: #fafafa;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+      font-family: 'Cinzel', serif;
+    }
+
+    footer {
+      background-color: var(--bg-main);
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-header);
+    }
+
+    @media (max-width: 768px) {
+      .banner h2 {
+        font-size: 32px;
+      }
+
+      header h1 {
+        font-size: 24px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>FOTODELEITE</h1>
+    <nav>
+      <a href="#portfolio">Portafolio</a>
+      <a href="#services">Servicios</a>
+      <a href="#about">Sobre mí</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <div>
+      <h2>Fotografía que transmite esencia y contexto</h2>
+      <a href="#contact">Agendar sesión</a>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <h2>Portafolio</h2>
+    <div class="portfolio-grid">
+      <img src="https://via.placeholder.com/400x300" alt="Foto 1">
+      <img src="https://via.placeholder.com/400x300" alt="Foto 2">
+      <img src="https://via.placeholder.com/400x300" alt="Foto 3">
+      <img src="https://via.placeholder.com/400x300" alt="Foto 4">
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>Servicios</h2>
+    <div class="services">
+      <div class="service-card">
+        <h3>Arquitectura</h3>
+        <p>Documentación visual profesional para construcción y diseño.</p>
+      </div>
+      <div class="service-card">
+        <h3>Alimentos</h3>
+        <p>Fotografía gastronómica con iluminación natural y creatividad.</p>
+      </div>
+      <div class="service-card">
+        <h3>Drones / Aérea</h3>
+        <p>Captura aérea de proyectos, eventos y paisajes con drones DJI.</p>
+      </div>
+      <div class="service-card">
+        <h3>Eventos / Retratos</h3>
+        <p>Fotografía de retratos y eventos con estilo profesional.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>Sobre mí</h2>
+    <p>Soy Santiago, fotógrafo profesional especializado en arquitectura, alimentos, retratos y fotografía aérea. Con Fotodeleite, busco capturar cada detalle y esencia de cada proyecto.</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contacto</h2>
+    <form>
+      <input type="text" placeholder="Nombre" required>
+      <input type="email" placeholder="Correo electrónico" required>
+      <textarea placeholder="Mensaje" rows="5" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Fotodeleite. Todos los derechos reservados.
+  </footer>
+
+</body>
+</html>
+
